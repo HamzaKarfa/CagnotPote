@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+    <h5>Nouvelle Campagne</h5>
+    <div class="input-field col s12 l6">
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title, { 'attr' : {  'value' : valueInput ,'class ':'validate' }}) }}
+    </div>
+    <div class="input-field col s12 l12">
+        {{ form_label(form.content) }}
+        {{ form_widget(form.content, { 'attr' : { 'class ':'validate'}}) }}
+    </div>
+    <div class="input-field col s12 l6">
+        {{ form_label(form.goal) }}
+        {{ form_widget(form.goal, { 'attr' : { 'class ':'validate'}}) }}
+    </div>
+    <div class="input-field col s12 l6">
+        {{ form_errors(form.name) }}
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, { 'attr' : { 'class ':'validate'}}) }}
+    </div>
+
+    <div class="input-field col s12 l6 center-items">
+        <button class="btn btn-large waves-effect waves-light pink lighten-1 col s12" type="submit">
+            {{ button_label|default('Nouvelle Campagne') }}
+            <i class="material-icons right">send</i>
+        </button>
+    </div> 
+{{ form_end(form) }}
