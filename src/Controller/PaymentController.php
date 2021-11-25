@@ -40,14 +40,9 @@ class PaymentController extends AbstractController
             
         if ($form->isSubmitted() && $form->isValid()  ) {
             
-            
-            
-            
-            
             $participant = $pay['participant'];
             $participant->setCampaign($campaign);
             $payment->setParticipant($participant);
-
             //Stripe 
             $this->stripeProcessing($payment, $request);
 
@@ -74,8 +69,7 @@ class PaymentController extends AbstractController
     public function stripeProcessing($payment, $request)
     {
         try{
-            \Stripe\Stripe::setApiKey('sk_test_51H1pgUELWEJ2P8yhcW3i8WyQdJFlx0HeBo4FS5AZcotnzcAR9VJV1PBLV870yK8GvgetgqopG1FKeo7Ei8lbOQA900S8TFpHi5');
-
+            \Stripe\Stripe::setApiKey($this->getParameter('key_stripe'));
 
             $charge = \Stripe\PaymentIntent::create([
                 'amount' => $payment->getAmount()*100,

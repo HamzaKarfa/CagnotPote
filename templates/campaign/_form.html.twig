@@ -2,7 +2,11 @@
     <h5>Nouvelle Campagne</h5>
     <div class="input-field col s12 l6">
             {{ form_label(form.title) }}
+            {% if valueInput %}
             {{ form_widget(form.title, { 'attr' : {  'value' : valueInput ,'class ':'validate' }}) }}
+            {% else %}
+            {{ form_widget(form.title, { 'attr' : {  'class ':'validate' }}) }}
+            {% endif %}
     </div>
     <div class="input-field col s12 l12">
         {{ form_label(form.content) }}

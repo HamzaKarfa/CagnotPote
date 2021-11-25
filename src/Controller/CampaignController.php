@@ -28,12 +28,8 @@ class CampaignController extends AbstractController
             ->getRepository(Campaign::class)
             ->findAll();
 
-
-        
-
         //Participant et Payement existant
         //TOUS LES PARTICIPANTS
-
         
             $participants = $this->getDoctrine()
             ->getRepository(Participant::class)
@@ -91,7 +87,6 @@ class CampaignController extends AbstractController
      */
     public function show(Campaign $campaign,  Request $request): Response
     {
-    
         
         //TOUS LES PARTICIPANTS
         $participants = $this->getDoctrine()
